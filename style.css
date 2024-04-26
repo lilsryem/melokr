@@ -29,3 +29,11 @@ body, html {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.centered {
+    position: fixed;
+    bottom: 20px; /* Ajuste selon la position verticale souhaitée */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
