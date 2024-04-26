@@ -10,7 +10,6 @@ window.addEventListener("load", function () {
     var userIP = document.getElementById("userIP");
     getUserIP(function (ip) {
         userIP.textContent = ip;
-        fetchCountryFlag(ip);
     });
 });
 
@@ -25,17 +24,4 @@ function getUserIP(onIPReceived) {
         }
     };
     xhr.send();
-}
-
-// Fonction pour récupérer le drapeau du pays
-function fetchCountryFlag(ip) {
-    fetch("https://ipinfo.io/" + ip + "/json")
-        .then(response => response.json())
-        .then(data => {
-            var countryCode = data.country;
-            var flagImage = document.getElementById("flagImage");
-            flagImage.src = "https://www.countryflags.io/" + countryCode + "/flat/64.png";
-            flagImage.alt = "Drapeau du " + data.country_name;
-        })
-        .catch(error => console.error("Erreur lors de la récupération du drapeau du pays :", error));
 }
